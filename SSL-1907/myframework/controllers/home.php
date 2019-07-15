@@ -13,12 +13,13 @@ class home extends AppController{
 
         //echo "hello";
 
-        $myNav = array("home"=>"/home/home","describe"=>"/describe/describe");
+        // $myNav = array("home"=>"/home/home","describe"=>"/describe/describe"); Day 2 nav, day 3 below
+        $myNav = array("home"=>"/home/home","api"=>"/api/api","crud"=>"/crud/crud","other"=>"/other/other");
         $data["navData"] = $myNav;
 
         $this->getView("header");
         $this->getView("navigation", $data);
-        $this->getView("body");
+        $this->getView("homeContent");
         $this->getView("footer");
     }
 }

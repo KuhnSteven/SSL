@@ -40,3 +40,26 @@ nav ul li a {
     color: white;
 }
 
+#modalPopoverDivParent {
+    width: 75%;
+    border: solid 1px purple;
+    margin-top: 5%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 2%;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+#modalPopoverDiv {
+    width: 75%;
+    border: solid 1px purple;
+    margin-top: 1%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5%;
+    padding: 2%;
+    display: flex;
+    justify-content: space-around;
+}

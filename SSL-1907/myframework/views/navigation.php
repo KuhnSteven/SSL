@@ -13,6 +13,5 @@
     }
     // close navigation
     echo "</ul></nav>";
-    // var_dump($this->parent->urlPathParts[0]);
 
     ?>
