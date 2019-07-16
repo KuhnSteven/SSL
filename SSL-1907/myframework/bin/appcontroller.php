@@ -7,7 +7,7 @@ class AppController{
     public function __construct($urlPathParts,$config)
     {
 
-        //$this->db = new PDO("mysql:dbname=".$config["dbname"].";",$config["dbuser"],$config["dbpass"]);
+        $this->db = new PDO("mysql:dbname=".$config["dbname"].";",$config["dbuser"],$config["dbpass"]);
       
         $this->urlPathParts = $urlPathParts;
 
@@ -37,14 +37,14 @@ class AppController{
 
             include './controllers/' . $config['defaultController'] . ".php";
             $appcon = new $config['defaultController']($this);
+            
             if (isset($urlPathParts[1])) {
                 $appcon->config['defaultController'][1]();
             }else{
-           		
            		$methodVariable = array($appcon, 'index');
-				if(is_callable($methodVariable, false, $callable_name)){
-            	$appcon->index($this);
-            
+                
+                   if(is_callable($methodVariable, false, $callable_name)){
+                        $appcon->index($this);
             	}
             }
 
@@ -53,8 +53,6 @@ class AppController{
 
 
     }
-
-
 
 
 

@@ -1,6 +1,7 @@
 body {
     background-color: skyblue;
     padding: 5%;
+    height: 100%;
 }
 
 html {
@@ -38,6 +39,27 @@ nav ul li a {
     text-align: center;
     padding: 14px 16px;
     color: white;
+}
+
+form {
+    display: flex;
+    flex-flow: column;
+    align-items: baseline;
+    background-color: white;
+    border: solid black 3px;
+    padding: 2%;
+}
+
+form label {
+    margin: 0px;
+}
+
+form input {
+    margin-bottom: 3%;
+}
+
+form button {
+    margin-top: 5%;
 }
 
 #modalPopoverDivParent {

@@ -1,20 +1,20 @@
 <?
-
-class api extends AppController{
+class login extends AppController{
 
     public function __construct($parent){
         $this->parent=$parent;
-    }
-    
 
-    public function api(){
+        //var_dump($this->parent);
+    }
+
+    public function login(){
         $myNav = array("home"=>"/home/home","register"=>"/register/register","login"=>"/login/login","api"=>"/api/api","crud"=>"/crud/crud","other"=>"/other/other");
         $data["navData"] = $myNav;
 
         $this->getView("header");
         $this->getView("navigation", $data);
-        $this->getView("body");
-        $this->getView("footer");
+        $this->getView("loginForm");
+        $this->getView("loginFooter");
     }
 }
 
