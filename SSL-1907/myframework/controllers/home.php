@@ -94,11 +94,51 @@ class home extends AppController{
     }
 
     public function loginAction(){
-        if($_REQUEST["username"] && $_REQUEST["password"]){
+        // Check for blank text
+        if($_POST["email"] != "" && $_POST["pass"] != ""){
         // 
-            if($_REQUEST["username"]=="steve@gmail.com" && $_REQUEST["pass"]=="password"){
+            if($_POST["email"]=="steve@gmail.com" && $_POST["pass"]=="password"){
                 //echo "logged in";
             }
+        } else {
+            // empty input
+        }
+    }
+
+    // Lecture Day5 code
+    public function formLogin(){
+        if($_POST["email"] != "" && $_POST["pass"] != ""){
+        // if my account
+            if($_POST["email"]=="steve@gmail.com" && $_POST["pass"]=="password"){
+                //echo "logged in";
+                $_SESSION["isloggedin"] = "1";
+                $_SESSION["email"] = $_POST["email"];
+
+                header("location:/welcome/landing");
+            }
+            // login failed
+            else{
+
+                $_SESSION["isloggedin"] = "0";
+                $_SESSION["email"] = "";
+
+                header("location:/welcome/loginForm?msg=Bad Login");
+            }
+        }
+        // blank email/pass
+        else{
+
+            $_SESSION["isloggedin"] = "0";
+            $_SESSION["email"] = "";
+
+            header("location:/welcome/loginForm?msg=Empty Login");
+        }
+    }
+
+    public function loginForm(){
+
+        if(@$_GET["msg"]){
+            
         }
     }
     
