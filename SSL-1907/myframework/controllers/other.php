@@ -8,12 +8,13 @@ class other extends AppController{
 
         // Is user logged in
         if(@$_SESSION["isloggedin"]!="1"){
-            header("location:home/formLogin?msg=Authorized Users Only");
+            header("location:/home/formLogin?msg=Authorized Users Only");
         }
     }
     
     public function landing(){
-        echo  "good landing";
+        // echo  "good landing";
+        // var_dump($_SESSION);
     }
 
     public function other(){
@@ -22,7 +23,8 @@ class other extends AppController{
 
         $this->getView("header");
         $this->getView("navigation", $data);
-        $this->getView("homeContent");
+        var_dump($_SESSION);
+        $this->getView("userContent");
         $this->getView("footer");
     }
 }

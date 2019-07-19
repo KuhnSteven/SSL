@@ -41,6 +41,10 @@ nav ul li a {
     color: white;
 }
 
+#loginForm {
+    margin-top: 5%;
+}
+
 form {
     display: flex;
     flex-flow: column;
