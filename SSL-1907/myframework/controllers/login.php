@@ -18,13 +18,17 @@ class login extends AppController{
     public function login(){
         $myNav = array("home"=>"/home/home","register"=>"/register/register","login"=>"/login/login","api"=>"/api/api","crud"=>"/crud/crud","other"=>"/other/other");
         $data["navData"] = $myNav;
-        $random = substr( md5(rand()), 0, 7);
+        // $random = substr( md5(rand()), 0, 7);
 
         $this->getView("header", array("pagename"=>"contact"));
         $this->getView("navigation", $data);
-        $this->getView("loginForm",array("cap"=>$random));
+        $this->getView("loginForm");
+        // $this->getView("loginForm",array("cap"=>$random));
         $this->getView("loginFooter");
     }
 }
+
+    // mkdir("folder");
+    // exec("mkdir /var/opt/test");
 
 ?>

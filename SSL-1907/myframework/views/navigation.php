@@ -20,12 +20,12 @@
             <a href="/auth/logout">Logout</a>
         </form>
     <?}else{?>
-        <form action="/home/formLogin" method="POST" enctype="">
+        <form action="/auth/login" method="POST" enctype="">
             <label for="email">Email Address:</label>
             <input type="text" name="email" id="email" placeholder="Enter email">
 
             <label for="pass">Password:</label>
-            <input type="text" name="pass" id="pass" placeholder="Enter password">
+            <input type="password" name="pass" id="pass" placeholder="Enter password">
             
             <input type="submit" name=""> 
         </form>

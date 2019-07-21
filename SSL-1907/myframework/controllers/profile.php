@@ -1,20 +1,37 @@
 <?
 
-class auth extends AppController{
+class profile extends AppController{
 
-    public function __construct(){
-        if($_SESSION["isloggedin"]="1"){
+    public function __construct($parent){
+        $this->parent=$parent;
+        $data = array();
 
-        }
-        // not logged in
-        else{
-            header("location:/home/loginForm?msg=Bad Login");
+        // Is user logged in
+        if(@$_SESSION["isloggedin"]!="1"){
+            header("location:/home/formLogin?msg=Authorized Users Only");
         }
     }
     
     public function index(){
+        $myNav = array("home"=>"/home/home","register"=>"/register/register","login"=>"/login/login","api"=>"/api/api","crud"=>"/crud/crud","other"=>"/other/other");
+        $data["navData"] = $myNav;
+
         $this->getView("header",array("pagename"=>"profile"));
         echo "This area is protected.";
+        $this->getView("navigation", $data);
+
+        $loginFiles = file('./assets/accounts.txt');
+        foreach($loginFiles as $login){
+            $logins = explode('|', $login);
+            $this->getView("profile");
+        }
+
+
+        $this->getView("footer");
+    }
+
+    public function landing(){
+        echo "RESTRICTED ACCESS ONLY.";
     }
 
     // Lecture Day5 code
@@ -26,7 +43,7 @@ class auth extends AppController{
                 $_SESSION["isloggedin"] = "1";
                 $_SESSION["email"] = $_POST["email"];
 
-                header("location:/other/index");
+                header("location:/other/other");
             }
             // login failed
             else{

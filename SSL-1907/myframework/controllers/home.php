@@ -145,6 +145,7 @@ class home extends AppController{
     //     }
     // }
 
+
     // Lecture Day5 code
     public function formLogin(){
         if($_POST["email"] != "" && $_POST["pass"] != ""){
@@ -177,9 +178,9 @@ class home extends AppController{
 
     public function loginForm(){
 
-        if(@$_GET["msg"]){
+        // if(@$_GET["msg"]){
             
-        }
+        // }
     }
     
 }

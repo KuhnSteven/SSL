@@ -23,7 +23,6 @@ class other extends AppController{
 
         $this->getView("header");
         $this->getView("navigation", $data);
-        var_dump($_SESSION);
         $this->getView("userContent");
         $this->getView("footer");
     }
